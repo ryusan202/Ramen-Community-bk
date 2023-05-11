@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <%= render 'sidebar' %>
+    </div>
+    <div class="col-md-9">
+      <div class="card mb-3" style="max-width: 1200px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <% if @post.image.attached? %>
+              <%= image_tag @post.image, class: "card-img-top h-100 w-100" %>
+            <% else %>
+              <%= image_tag "142_refileDownloadImage", class: "card-img-top h-100 w-100" %>
+            <% end %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 32px;"><%= @post.title %></h5>
+              <p class="card-text" style="font-size: 24px;"><%= @post.body %></p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="font-size: 24px;">ジャンル: <%= @post.genre %></li>
+                <li class="list-group-item" style="font-size: 24px;">投稿日: <%= @post.created_at.strftime("%Y/%m/%d") %></li>
+                <li class="list-group-item" style="font-size: 24px;"><%# 評価: <%= @post.rating %> %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
