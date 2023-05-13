@@ -1,0 +1,5 @@
+<% if current_user.liked_posts.include?(@post) %>
+  <%= button_to 'いいねを解除する', like_path(@post.likes.find_by(user_id: current_user.id)), method: :delete %>
+<% else %>
+  <%= button_to 'いいねする', likes_path(post_id: @post.id), method: :post %>
+<% end %>

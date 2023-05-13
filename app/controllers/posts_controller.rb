@@ -3,6 +3,13 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+
+    @ranking = []
+    if @ranking_posts.present?
+      @ranking_posts.each_with_index do |post, i|
+        @ranking << { rank: i+1, title: post.title, likes_count: post.likes_count }
+      end
+    end
   end
 
   def new
