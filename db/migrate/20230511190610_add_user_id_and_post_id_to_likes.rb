@@ -1,6 +1,6 @@
 class AddUserIdAndPostIdToLikes < ActiveRecord::Migration[7.0]
-  def change
-    add_column :likes, :user_id, :integer
-    add_column :likes, :post_id, :integer
-  end
+def down
+  remove_column :likes, :user_id
+  remove_column :likes, :post_id
+end
 end

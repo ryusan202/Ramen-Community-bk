@@ -18,17 +18,9 @@
               <h5 class="card-title" style="font-size: 32px;"><%= @post.title %></h5>
               <p class="card-text" style="font-size: 24px;"><%= @post.body %></p>
               <ul class="list-group list-group-flush">
-<% if @post.liked?(current_user) %>
-  <%= link_to post_like_path(@post, @post.find_like(current_user)), method: :delete do %>
-    <span style="color:red;">❤︎</span>
-  <% end %>
-<% else %>
-  <%= link_to post_likes_path(@post), method: :post do %>
-    <span>❤︎</span>
-  <% end %>
-<% end %>
-
-
+          <li>
+            <%= render partial: 'like/like', locals: { post: @post } %>
+          </li>
                 <li class="list-group-item" style="font-size: 24px;">ジャンル: <%= @post.genre %></li>
                 <li class="list-group-item" style="font-size: 24px;">投稿日: <%= @post.created_at.strftime("%Y/%m/%d") %></li>
                 <li class="list-group-item" style="font-size: 24px;"><%# 評価: <%= @post.rating %> %></li>
